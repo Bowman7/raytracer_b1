@@ -1,0 +1,37 @@
+#include"raylib/raylib.h"
+#include<iostream>
+
+#include"src/wheel1.cpp"
+
+#define SCREEN_WIDTH 1080
+#define SCREEN_HEIGHT 720
+
+
+int main(){
+  //init stuff
+  InitWindow(SCREEN_WIDTH,SCREEN_HEIGHT,"wheel disp");
+
+  SetTargetFPS(60);
+
+  //create wheels
+  Wheel w;
+
+  while(!WindowShouldClose()){
+    //handle inputs
+    w.HandleInputs();
+    //update
+    w.Update();
+    //draw
+    
+    BeginDrawing();
+    ClearBackground(WHITE);
+
+    w.Draw();
+    
+    EndDrawing();
+
+  }
+  CloseWindow();
+  
+  return 0;
+}
